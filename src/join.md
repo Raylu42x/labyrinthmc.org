@@ -7,7 +7,12 @@ title: Join
 
 The server is **whitelisted**. Contact an admin to get added before joining.
   
-To get whitelisted, email [admin@lmc.kervian.com](mailto:admin@lmc.kervian.com) or find Bennett at Labyrinth.
+To get whitelisted, email [admin@labyrinthmc.org](mailto:admin@labyrinthmc.org) or find Bennett at Labyrinth.
+
+---
+
+### Switching To The New IP
+Remove the old server address/server or edit it, put in the address and port for your system, see down
 
 ---
   
