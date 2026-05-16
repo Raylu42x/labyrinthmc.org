@@ -5,10 +5,6 @@ title: Staff
 
 # Staff
 
-## Owner
-
-- Darrell
-
 ## Admins
 
 - Bennett (Blocksmasher512)
