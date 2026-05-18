@@ -38,6 +38,15 @@
   </nav>
 </header>
 
+  
+<div id="site-banner" class="site-banner" data-banner-id="ip-move-2026-05">
+  <div class="site-banner-inner">
+    <span><strong>The server IP is moving.</strong> See the <a href="/join/">Join</a> page for the new address.</span>
+    <button class="site-banner-dismiss" aria-label="Dismiss announcement">&#x2715;</button>
+  </div>
+</div>
+
+
 
   <main>
     <h1>Server Rules</h1>
@@ -84,7 +93,7 @@
   </main>
 
   <footer>
-  <p>&copy; 2026 Bennett. &mdash; <a href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank" rel="noopener">Licensed under CC BY-NC 4.0</a></p>
+  <p>&copy; 2026 Bennett.&nbsp;&mdash; <a href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank" rel="noopener">Licensed under CC BY-NC 4.0</a>&nbsp;&mdash; <a href="mailto:admin@labyrinthmc.org">admin@labyrinthmc.org</a></p>
 </footer>
 
 
@@ -104,6 +113,19 @@
         navLinks.classList.remove('active');
       });
     });
+
+    const banner = document.getElementById('site-banner');
+    if (banner) {
+      const id = banner.dataset.bannerId;
+      if (localStorage.getItem('banner-dismissed') === id) {
+        banner.remove();
+      } else {
+        banner.querySelector('.site-banner-dismiss').addEventListener('click', () => {
+          localStorage.setItem('banner-dismissed', id);
+          banner.remove();
+        });
+      }
+    }
   </script>
 </body>
 </html>

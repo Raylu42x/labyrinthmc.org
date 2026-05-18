@@ -8,6 +8,7 @@
 </head>
 <body>
   {% include "header.njk" %}
+  {% include "banner.njk" %}
 
   <main>
     {{ content | safe }}
@@ -31,6 +32,19 @@
         navLinks.classList.remove('active');
       });
     });
+
+    const banner = document.getElementById('site-banner');
+    if (banner) {
+      const id = banner.dataset.bannerId;
+      if (localStorage.getItem('banner-dismissed') === id) {
+        banner.remove();
+      } else {
+        banner.querySelector('.site-banner-dismiss').addEventListener('click', () => {
+          localStorage.setItem('banner-dismissed', id);
+          banner.remove();
+        });
+      }
+    }
   </script>
 </body>
 </html>

@@ -1,0 +1,8 @@
+{% if banner.enabled and banner.html %}
+<div id="site-banner" class="site-banner" data-banner-id="{{ banner.id }}">
+  <div class="site-banner-inner">
+    <span>{{ banner.html | safe }}</span>
+    <button class="site-banner-dismiss" aria-label="Dismiss announcement">&#x2715;</button>
+  </div>
+</div>
+{% endif %}

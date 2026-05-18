@@ -31,13 +31,32 @@ npm run build    # production build → _site/
 | `/staff` | Staff list |
 | `/bugs-and-suggestions` | Bug reports and feature requests |
 
+## Site banner
+
+A dismissible announcement banner appears at the top of every page. To manage it, edit **`src/banner.md`**:
+
+```markdown
+---
+enabled: true
+id: ip-move-2026-05
+---
+**The server IP is moving.** See the [Join](/join/) page for the new address.
+```
+
+| Frontmatter field | Purpose |
+|---|---|
+| `enabled` | Set to `false` to hide the banner entirely |
+| `id` | Unique string for this banner version; change it to reset dismissals so users who closed it see the new message |
+
+The body supports markdown (bold, links). Dismissals are stored in `localStorage` keyed on `id`.
+
 ## Structure
 
 ```
 src/              # Source templates and content
-_site/            # Built site output
-docs/             # Static assets (CNAME, images, etc.)
+src/banner.md     # Site-wide announcement banner content
+docs/             # Built site output
 eleventy.config.js
 ```
 
-> `docs/` contains static assets — it's excluded from the documentation site via `.no-docs`. Markdown docs live in `documentation/` instead.
+> `docs/` contains the built site — it's excluded from the documentation site via `.no-docs`. Markdown docs live in `documentation/` instead.
