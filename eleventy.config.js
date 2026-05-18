@@ -2,6 +2,7 @@ export default function (eleventyConfig) {
   eleventyConfig.addPassthroughCopy("src/assets");
 
   eleventyConfig.addGlobalData("year", () => new Date().getFullYear());
+  eleventyConfig.addGlobalData("buildTime", () => Date.now());
 
   return {
     dir: {
