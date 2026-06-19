@@ -25,6 +25,7 @@ Remove the old server address/server or edit it, put in the address and port for
 No port needed — the address resolves via SRV.
 
 If the current game server version is ahead or behind of your game version see [Here](/changeversion/) for instructions.
+
 ---
                                          
 ## Bedrock Edition
