@@ -13,7 +13,9 @@ title: Staff
 ## Moderators
 
 - Baxter (Treewaker5)
+- Dylan
+- Sam
 
 ## Contact
 
-Email: [admin@lmc.kervian.com](mailto:admin@lmc.kervian.com)
+Email: [admin@labyrinthmc.org](mailto:admin@labyrinthmc.org)
