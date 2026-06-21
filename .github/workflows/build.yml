@@ -1,0 +1,66 @@
+name: Build Eleventy site
+
+permissions:
+  contents: write
+
+on:
+  push:
+    branches:
+      - '**'
+    paths-ignore:
+      - 'docs/**'
+  pull_request:
+    branches:
+      - '**'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          persist-credentials: true
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Use Node.js
+        uses: actions/setup-node@v5
+        with:
+          node-version: '20'
+          cache: 'npm'
+
+      - name: Rebase branch onto remote
+        if: github.event_name == 'push'
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          branch="$GITHUB_REF_NAME"
+          git fetch origin "$branch"
+          git rebase "origin/$branch"
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Build site
+        run: npm run build
+
+      - name: Commit generated docs
+        if: github.event_name == 'push'
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          branch="$GITHUB_REF_NAME"
+          git add docs
+          if git diff --cached --quiet; then
+            echo "No docs changes to commit."
+          else
+            git commit -m "chore: build site [skip ci]"
+            git push --force-with-lease origin HEAD:"$branch"
+          fi
+
+      - name: List generated site files
+        run: |
+          echo "Generated output in docs/"
+          ls -R docs | sed -n '1,200p'
