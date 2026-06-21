@@ -11,7 +11,7 @@ title: Status
 
 ## Server Status
 <div style="padding: 10px; background: #fff3cd; border-radius: 4px; margin: 10px 0;">
-  ⏳ Waiting for Update - Server update to 26.2 in progress - waiting for paper 
+  ⏳ Waiting for Update - Server update to 26.2 in progress - waiting for paper still
 </div>
 
 ---
